@@ -15,4 +15,121 @@
 
 \begin{document}
 \maketitle
+
+\section{Reißverschlussmodell für DNA-Moleküle}
+\subsection{}
+Das betrachtete System hat eine konstante Teilchenzahl und befindet sich im Wärmeaustausch mit einem Reservoir. Wir können es deshalb als kanonisches Ensemble auffassen. Die kanonische Zustandssumme ist
+
+\begin{align*}
+Z_k = \sum_n \exp{-\frac{E_n}{k_B T}} \\
+\end{align*}
+Für die Energie gilt dabei einfach $E_n=n\epsilon$, wobei $n$ die Anzahl der geöffneten Bindungen ist. Also:
+\begin{align*}
+Z_k = \sum_n \exp{-\frac{n\epsilon}{k_B T}} \\
+\end{align*}
+
+\subsection{}
+Mit
+\begin{align*}
+W_k(n) &= \frac{1}{Z_k} \exp{-E_n \beta} \\
+&= \frac{1}{Z_k} \exp{-\frac{n \epsilon}{k_B T}}
+\end{align*} 
+gilt für die mittlere Zahl der offenen Bindungen  $\langle n \rangle $:
+\begin{align*}
+\langle n \rangle &= \sum_n n W_k(n) \\
+&= \frac{1}{Z_k} \sum_n n \ \exp{-\frac{n \epsilon}{k_B T}} \\
+&= \frac{\sum_n n \ \exp{-\frac{n \epsilon}{k_B T}}}{\sum_n \exp{-\frac{n\epsilon}{k_B T}}}
+\end{align*}
+Definiere $x := \exp{\epsilon \beta}$:
+\begin{align*}
+\langle n \rangle &= \frac{\sum_n^{N-1} n x^n}{\sum_n^{N-1} x^n} \\
+&=\frac{\frac{Nx^{N+1}-Nx^{N}+x}{(x-1)^2}}{\frac{1-x^{N}}{1-x}} \\
+&=\frac{Nx^{N+1}-Nx^{N}+x}{(x-1)(x^{N}-1)} \\
+&=\frac{Nx^{N+1}-Nx^{N}+x}{x^{N+1}-x^{N}-x+1}
+\end{align*}
+
+\subsection{}
+Zu bestimmen ist der Anteil offener Bindungen $\langle n \rangle/ N$ im Limes $N \rightarrow \infty$ als Funktion von $x$.
+\begin{align*}
+\lim_{N \rightarrow \infty} \frac{\langle n \rangle}{N}=\lim_{N \rightarrow \infty} \frac{x^{N+1}-x^{N}+x/N}{x^{N+1}-x^{N}-x+1}
+\end{align*}
+Wir betrachten zunächst den Fall $x<0$:
+\begin{align*}
+\lim_{N \rightarrow \infty} \frac{x^{N+1}-x^{N}+x/N}{x^{N+1}-x^{N}-x+1}=\frac{0}{1-x}=0 \\
+\end{align*}
+Nun den Fall $x>0$:
+\begin{align*}
+\lim_{N \rightarrow \infty} \frac{x^{N+1}-x^{N}+x/N}{x^{N+1}-x^{N}-x+1}= \lim_{N \rightarrow \infty} \frac{x^{N+1}-x^{N}}{x^{N+1}-x^{N}}=1
+\end{align*}
+Ein sehr langer DNA-Strang ist demnach, abhängig von der Temperatur entweder vollständig geschlossen oder vollständig aufgespalten.
+
+\section{Zustandsdichte}
+\subsection{Elektronen}
+Für (nichtrelativistische) Elektronen gilt die folgende Dispersionsrelation:
+\[\epsilon (p) = \frac{p^2}{2m} \]
+Damit ergibt sich für die Zustandsdichte für einen eindimensionalen Kasten:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{2\pi\hbar} \int \dif p \  \delta\del{\epsilon - \frac{p^2}{2m}} \\
+&= \frac{1}{2\pi\hbar} \int \dif q \frac{m}{\sqrt{q}} \ \delta \del{\epsilon-q} \\
+&= \frac{m}{2\pi\hbar\sqrt{\epsilon}} \\
+\end{align*}
+Für $d=2$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^2} \int \dif^2 p \ \delta \del{\epsilon-\frac{p^2}{2m}} \\
+&=\frac{1}{(2\pi\hbar)^2} \int \dif \phi \int \dif p \ p \ \delta \del{\epsilon-\frac{p^2}{2m}} \\
+&=\frac{2\pi}{(2\pi\hbar)^2} \int \dif q \ m \ \delta(\epsilon-q) \\
+&=\frac{m}{2\pi\hbar^2} \\
+\end{align*}
+Für $d=3$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^3} \int \dif^3 p \ \delta \del{\epsilon-\frac{p^2}{2m}} \\
+&= \frac{1}{(2\pi\hbar)^3} \int \dif \Omega \int \dif p \ p^2 \ \delta \del{\epsilon-\frac{p^2}{2m}} \\
+&= \frac{4\pi}{(2\pi\hbar)^3} \int \dif p \ p^2 \ \delta\del{\epsilon-\frac{p^2}{2m}} \\
+&= \frac{1}{2\pi^2\hbar^3} \int \dif q \sqrt{q} m \ \delta(\epsilon-q) \\
+&= \frac{m \sqrt{\epsilon}}{2\pi^2\hbar^3}
+\end{align*}
+
+\subsection{Photonen}
+Für Photonen gilt die Dispersionsrelation $\epsilon(p)=cp$. Damit gilt für die Zustandsdichte für $d=1$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{2\pi\hbar} \int \dif p\ \delta(\epsilon - cp) \\
+&=\frac{1}{2\pi\hbar c}
+\end{align*}
+Für $d=2$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^2} \int \dif \phi \int \dif p \ p \ \delta(\epsilon-cp) \\
+&=\frac{2\pi}{(2\pi\hbar)^2} \int \dif q \ \frac{q}{c^2} \  \delta(\epsilon-q) \\
+&=\frac{\epsilon}{2\pi\hbar^2 c^2}
+\end{align*}
+Für $d=3$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^3} \int \dif \Omega \int \dif p \ p^2 \delta(\epsilon-cp) \\
+&= \frac{1}{2\pi^2\hbar^3} \int \dif q \ \frac{q^2}{c^3} \  \delta(\epsilon-q) \\
+&=\frac{\epsilon^2}{2\pi^2\hbar^3c^3}
+\end{align*}
+
+\subsection{Relativistische Teilchen}
+Für relativistische Teilchen gilt:
+\begin{align*}
+\epsilon(p)^2 &= (pc)^2+(mc^2)^2 \\
+\implies \epsilon(p) &= \sqrt{(pc)^2+(mc^2)^2}
+\end{align*}
+Dann gilt für die Zustandsdichte bei $d=1$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{2\pi\hbar} \int \dif p \ \delta \del{\epsilon - \sqrt{(pc)^2+(mc^2)^2}} \\
+&= \frac{1}{2\pi\hbar} \int \dif q \ \frac{q}{c\sqrt{q^2-(mc^2)^2}} \delta \del{\epsilon-q} \\
+&= \frac{\epsilon}{2\pi\hbar c\sqrt{\epsilon^2-(mc^2)^2}}
+\end{align*}
+Für $d=2$: 
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^2} \int \dif \phi \int \dif p \ p \ \delta \del{\epsilon - \sqrt{(pc)^2+(mc^2)^2}} \\
+&= \frac{1}{2\pi\hbar^2} \int \dif q \ \frac{q}{c^2} \\
+&= \frac{1}{2\pi\hbar^2 c}
+\end{align*}
+Für $d=3$:
+\begin{align*}
+\mathcal{N}\del{\epsilon} &= \frac{1}{(2\pi\hbar)^3} \int \dif \Omega \int \dif p \ p^2 \ \delta \del{\epsilon - \sqrt{(pc)^2+(mc^2)^2}} \\
+&= \frac{1}{2\pi^2\hbar^3} \int \dif q \frac{q\sqrt{q^2-(mc^2)^2}}{c^3} \ \delta(\epsilon-q) \\
+&= \frac{\epsilon\sqrt{\epsilon^2-(mc^2)^2}}{2\pi^2\hbar^3 c^3}
+\end{align*}
 \end{document}
